@@ -29,6 +29,16 @@ Start time: _____
 Finish time: _____
 
 Actual time needed to complete: _____
+
+Name of feature: Set up your repositories
+
+Estimate of time needed to complete: 1 hour
+
+Start time: 1400
+
+Finish time: 1500
+
+Actual time needed to complete: 1 hour
 ## Estimates
 
 <!-- See below -->
