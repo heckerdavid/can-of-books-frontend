@@ -8,8 +8,8 @@ export default class BookCarousel extends React.Component {
         {this.props.books.map((book) => (
           <Carousel.Item>
             <img
-              className="d-block w-100"
-              src="https://place-hold.it/100"
+              className="d-block w-100 h-50"
+              src="https://place-hold.it/200"
               alt="First slide"
             />
             <Carousel.Caption>

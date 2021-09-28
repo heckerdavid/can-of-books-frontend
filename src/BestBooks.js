@@ -1,7 +1,7 @@
 import axios from "axios";
 import React from "react";
 import BookCarousel from './Carousel.js';
-import Carousel from 'react-bootstrap/Carousel';
+// import Carousel from 'react-bootstrap/Carousel';
 require("dotenv").config();
 
 class BestBooks extends React.Component {
@@ -22,12 +22,16 @@ class BestBooks extends React.Component {
     console.log("book data" + booksResponse.data[0].title);
   };
 
+  componentDidMount() {
+    this.getBooks();
+  }
+
   render() {
     /* TODO: render user's books in a Carousel */
 
     return (
       <>
-        <h2 onClick={this.getBooks}>
+        <h2 >
           My Essential Lifelong Learning &amp; Formation Shelf
         </h2>
 
