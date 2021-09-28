@@ -40,12 +40,15 @@ class App extends React.Component {
               {/* TODO: if the user is logged in, render the `BestBooks` component, if they are not, render the `Login` component */}
               <BestBooks />
             </Route>
+            <Route path="/profile">
+              <h1>hi from profile</h1>
+            </Route>
             {/* TODO: add a route with a path of '/profile' that renders a `Profile` component */}
           </Switch>
           <Footer />
         </Router>
       </>
-    )
+    );
   }
 }
 
