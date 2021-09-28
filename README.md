@@ -39,14 +39,25 @@ Start time: 1400
 Finish time: 1500
 
 Actual time needed to complete: 1 hour
+
+Name of feature: 3. Book Component: As a user, I'd like to see my list of books, so that I can track what's impacted me, and what's recommended to me.
+
+Estimate of time needed to complete: 2 hours
+
+Start time: 1700
+
+Finish time: 1840
+
+Actual time needed to complete: 1 hour 40 min
+
 ## Estimates
 
 <!-- See below -->
 
 ## Credit and Collaborations
 
-
-
+  - trouble shooting assistabnce from
+    - Hexx 9/27/21
 
 # Logistical
 
