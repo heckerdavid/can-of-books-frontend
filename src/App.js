@@ -1,7 +1,9 @@
 import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
-import BestBooks from './BestBooks.js'
+import BestBooks from './BestBooks.js';
+import Button from 'react-bootstrap/Button';
+import BookFormModal from './BookFormModal';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   BrowserRouter as Router,
@@ -30,6 +32,17 @@ class App extends React.Component {
     })
   }
 
+  handleAddBookclick =()=>{
+    this.setState({
+      showBookForm: true
+    });
+  }
+  hideForm = ()=>{
+    this.setState({
+      showBookForm: false
+    })
+  }
+
   render() {
     return (
       <>
@@ -39,6 +52,9 @@ class App extends React.Component {
             <Route exact path="/">
               {/* TODO: if the user is logged in, render the `BestBooks` component, if they are not, render the `Login` component */}
               <BestBooks />
+              <Button onClick = {this.handleAddBookclick}>Add Book</Button>
+           {this.state.showBookForm && <BookFormModal
+            hideForm={this.hideForm} />}
             </Route>
             <Route path="/profile">
               <h1>hi from profile</h1>
