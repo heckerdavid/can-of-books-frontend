@@ -18,6 +18,7 @@ export default class BookFormModal extends React.Component {
     const booURL = "http://localhost:3001/books";
     const newBookData = await axios.post(booURL, bookInfo);
     this.props.hideForm();
+    this.props.getBooks();
   }
   render() {
     return (

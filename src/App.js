@@ -71,7 +71,7 @@ class App extends React.Component {
               <BestBooks onDelete={this.handleDelete} getBooks={this.getBooks} books={this.state.books} />
               <Button onClick={this.handleAddBookclick}>Add Book</Button>
               {this.state.showBookForm && (
-                <BookFormModal hideForm={this.hideForm}/>
+                <BookFormModal hideForm={this.hideForm} getBooks={this.getBooks} />
               )}
             </Route>
             <Route path="/profile">
