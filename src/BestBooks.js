@@ -8,22 +8,22 @@ class BestBooks extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      books: [],
+      books: this.props.books,
     };
   }
 
   /* TODO: Make a GET request to your API to fetch books for the logged in user  */
-  getBooks = async () => {
-    const booksURL = "http://localhost:3001/books";
+  // getBooks = async () => {
+  //   const booksURL = "http://localhost:3001/books";
 
-    let booksResponse = await axios.get(booksURL);
-    let bookData = booksResponse.data;
-    this.setState({ books: bookData });
-    console.log("book data" + booksResponse.data[0].title);
-  };
+  //   let booksResponse = await axios.get(booksURL);
+  //   let bookData = booksResponse.data;
+  //   this.setState({ books: bookData });
+  //   console.log("book data" + booksResponse.data[0].title);
+  // };
 
   componentDidMount() {
-    this.getBooks();
+    this.props.getBooks();
   }
 
   render() {
@@ -35,9 +35,9 @@ class BestBooks extends React.Component {
           My Essential Lifelong Learning &amp; Formation Shelf
         </h2>
 
-        {this.state.books[0] ? (
+        {this.props.books ? (
 
-          <BookCarousel books={this.state.books} />
+          <BookCarousel books={this.props.books} onDelete={this.props.onDelete} />
 
         ) : (
           <h3>No Books Found</h3>
