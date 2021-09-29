@@ -7,8 +7,6 @@ export default class BookFormModal extends React.Component {
 
   handleSubmit = async (event) => {
     event.preventDefault();
-    const submissionData =  event.target.title.value;
-    console.log(submissionData);
     const bookInfo = {
       title: event.target.title.value,
       description: event.target.description.value,

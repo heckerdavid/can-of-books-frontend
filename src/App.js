@@ -6,6 +6,8 @@ import Button from 'react-bootstrap/Button';
 import BookFormModal from './BookFormModal';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
+import Profile from './Profile.js';
+import Login from './Login.js';
 import {
   BrowserRouter as Router,
   Switch,
@@ -37,6 +39,7 @@ class App extends React.Component {
       showBookForm: true,
     });
   };
+
   hideForm = () => {
     this.setState({
       showBookForm: false,
@@ -68,14 +71,21 @@ class App extends React.Component {
           <Switch>
             <Route exact path="/">
               {/* TODO: if the user is logged in, render the `BestBooks` component, if they are not, render the `Login` component */}
-              <BestBooks onDelete={this.handleDelete} getBooks={this.getBooks} books={this.state.books} />
-              <Button onClick={this.handleAddBookclick}>Add Book</Button>
-              {this.state.showBookForm && (
-                <BookFormModal hideForm={this.hideForm} getBooks={this.getBooks} />
-              )}
+              {this.state.user ? (
+                <>
+                  <BestBooks onDelete={this.handleDelete} getBooks={this.getBooks} books={this.state.books} />
+                  <Button onClick={this.handleAddBookclick}>Add Book</Button>
+                  {this.state.showBookForm && (
+                    <BookFormModal hideForm={this.hideForm} getBooks={this.getBooks} />
+                  )}
+                </>
+              ) : (
+                <Login loginHandler={this.loginHandler}/>
+              )
+              }
             </Route>
             <Route path="/profile">
-              <h1>hi from profile</h1>
+             <Profile user={this.state.user}/>
             </Route>
             {/* TODO: add a route with a path of '/profile' that renders a `Profile` component */}
           </Switch>
