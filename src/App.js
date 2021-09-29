@@ -47,7 +47,17 @@ class App extends React.Component {
     console.log(please);
 
     const deleteURL = "http://localhost:3001/books";
-    await axios.delete(deleteURL + '/' + please._id);
+    await axios.delete(deleteURL + "/" + please._id);
+    this.getBooks();
+  };
+
+  getBooks = async () => {
+    const booksURL = "http://localhost:3001/books";
+
+    let booksResponse = await axios.get(booksURL);
+    let bookData = booksResponse.data;
+    this.setState({ books: bookData });
+    console.log("book data" + booksResponse.data[0].title);
   };
 
   render() {
@@ -58,10 +68,10 @@ class App extends React.Component {
           <Switch>
             <Route exact path="/">
               {/* TODO: if the user is logged in, render the `BestBooks` component, if they are not, render the `Login` component */}
-              <BestBooks onDelete={this.handleDelete} />
+              <BestBooks onDelete={this.handleDelete} getBooks={this.getBooks} books={this.state.books} />
               <Button onClick={this.handleAddBookclick}>Add Book</Button>
               {this.state.showBookForm && (
-                <BookFormModal hideForm={this.hideForm} />
+                <BookFormModal hideForm={this.hideForm}/>
               )}
             </Route>
             <Route path="/profile">
