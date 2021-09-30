@@ -37,7 +37,7 @@ class BestBooks extends React.Component {
 
         {this.props.books ? (
 
-          <BookCarousel books={this.props.books} onDelete={this.props.onDelete} />
+          <BookCarousel onEdit={this.props.onEdit} books={this.props.books} onDelete={this.props.onDelete} />
 
         ) : (
           <h3>No Books Found</h3>

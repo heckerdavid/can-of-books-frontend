@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import Profile from './Profile.js';
 import Login from './Login.js';
+import EditFormModal from './EditForm';
 import {
   BrowserRouter as Router,
   Switch,
@@ -19,6 +20,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       user: null,
+      showEditForm: false
     };
   }
 
@@ -54,6 +56,15 @@ class App extends React.Component {
     this.getBooks();
   };
 
+  handleEdit = async () => {
+    this.setState({
+      showEditForm: true
+    })
+    // const editURL = "http://localhost:3001/books";
+    // await axios.put(editURL + "/" + please._id);
+    // this.getBooks();
+  };
+
   getBooks = async () => {
     const booksURL = "http://localhost:3001/books";
 
@@ -73,11 +84,14 @@ class App extends React.Component {
               {/* TODO: if the user is logged in, render the `BestBooks` component, if they are not, render the `Login` component */}
               {this.state.user ? (
                 <>
-                  <BestBooks onDelete={this.handleDelete} getBooks={this.getBooks} books={this.state.books} />
+                  <BestBooks onEdit={this.handleEdit} onDelete={this.handleDelete} getBooks={this.getBooks} books={this.state.books} />
                   <Button onClick={this.handleAddBookclick}>Add Book</Button>
                   {this.state.showBookForm && (
                     <BookFormModal hideForm={this.hideForm} getBooks={this.getBooks} />
                   )}
+                  {this.state.showEditForm && 
+                    <EditFormModal getBooks={this.getBooks} hideForm={this.handleEdit}/>
+                  }
                 </>
               ) : (
                 <Login loginHandler={this.loginHandler}/>
