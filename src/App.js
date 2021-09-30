@@ -46,7 +46,7 @@ class App extends React.Component {
   };
 
   handleDelete = async (please) => {
-    const deleteURL = "http://localhost:3001/books";
+    const deleteURL = "https://bookshelf301.herokuapp.com/books";
     await axios.delete(deleteURL + "/" + please._id);
     this.getBooks();
   };
@@ -65,7 +65,7 @@ class App extends React.Component {
   };
 
   getBooks = async () => {
-    const booksURL = "http://localhost:3001/books";
+    const booksURL = "https://bookshelf301.herokuapp.com/books";
 
     let booksResponse = await axios.get(booksURL);
     let bookData = booksResponse.data;
