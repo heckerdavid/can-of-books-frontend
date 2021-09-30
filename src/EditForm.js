@@ -14,7 +14,10 @@ export default class EditFormModal extends React.Component {
       email: event.target.email.value
     }
     this.props.hideForm();
-    const booURL = "http://localhost:3001/books";
+    const email = this.props.user.email;
+    const id = this.props.id
+
+    const booURL = `http://localhost:3001/books/${id}?email=${email}`;
     const newBookData = await axios.put(booURL, bookInfo);
     
     this.props.getBooks();
@@ -43,7 +46,7 @@ export default class EditFormModal extends React.Component {
         </Form.Group>
 
         <Button variant="primary" type="submit" >
-          Edit
+          Save Book Update
         </Button>
       </Form>
     )

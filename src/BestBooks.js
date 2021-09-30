@@ -1,4 +1,4 @@
-import axios from "axios";
+// import axios from "axios";
 import React from "react";
 import BookCarousel from './Carousel.js';
 // import Carousel from 'react-bootstrap/Carousel';
@@ -37,7 +37,7 @@ class BestBooks extends React.Component {
 
         {this.props.books ? (
 
-          <BookCarousel onEdit={this.props.onEdit} books={this.props.books} onDelete={this.props.onDelete} />
+          <BookCarousel onEdit={this.props.onEdit} books={this.props.books} onDelete={this.props.onDelete} showEdit={this.props.showEdit}/>
 
         ) : (
           <h3>No Books Found</h3>

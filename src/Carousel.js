@@ -1,17 +1,21 @@
 import React from "react";
 import Carousel from "react-bootstrap/Carousel";
 import Button from "react-bootstrap/Button";
-import axios from "axios";
+// import axios from "axios";
 
 export default class BookCarousel extends React.Component {
- 
-
   render() {
     return (
-      <Carousel>
+      <Carousel className="w-50">
         {this.props.books.map((book) => (
-          <Carousel.Item>
-            <Book key={book._id} info={book} onDelete={this.props.onDelete} onEdit={this.props.onEdit}/>
+          <Carousel.Item key={book._id}>
+            <Book
+              key={book._id}
+              info={book}
+              onDelete={this.props.onDelete}
+              onEdit={this.props.onEdit}
+              showEdit={this.props.showEdit}
+            />
           </Carousel.Item>
         ))}
       </Carousel>
@@ -21,7 +25,7 @@ export default class BookCarousel extends React.Component {
 
 class Book extends React.Component {
   handleDelete = () => this.props.onDelete(this.props.info);
-  handleEdit = () => this.props.onEdit();
+  handleEdit = () => this.props.showEdit(this.props.info);
 
   render() {
     return (
