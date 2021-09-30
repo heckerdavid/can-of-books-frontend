@@ -6,7 +6,7 @@ import Button from "react-bootstrap/Button";
 export default class BookCarousel extends React.Component {
   render() {
     return (
-      <Carousel>
+      <Carousel className="w-50">
         {this.props.books.map((book) => (
           <Carousel.Item key={book._id}>
             <Book
