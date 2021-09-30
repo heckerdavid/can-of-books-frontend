@@ -13,8 +13,8 @@ export default class BookFormModal extends React.Component {
       status: event.target.status.value,
       email: event.target.email.value
     }
-    const booURL = "http://localhost:3001/books";
-    const newBookData = await axios.post(booURL, bookInfo);
+    const booURL = "https://bookshelf301.herokuapp.com/books";
+    await axios.post(booURL, bookInfo);
     this.props.hideForm();
     this.props.getBooks();
   }

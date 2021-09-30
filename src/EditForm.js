@@ -17,8 +17,8 @@ export default class EditFormModal extends React.Component {
     const email = this.props.user.email;
     const id = this.props.id
 
-    const booURL = `http://localhost:3001/books/${id}?email=${email}`;
-    const newBookData = await axios.put(booURL, bookInfo);
+    const booURL = `https://bookshelf301.herokuapp.com/books/${id}?email=${email}`;
+    await axios.put(booURL, bookInfo);
     
     this.props.getBooks();
   }
