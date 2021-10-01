@@ -10,6 +10,8 @@ import Profile from "./Profile.js";
 import Login from "./Login.js";
 import EditFormModal from "./EditForm";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { withAuth0 } from '@auth0/auth0-react';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -120,4 +122,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default withAuth0(App);
