@@ -1,32 +1,59 @@
-import { Component } from 'react'
+// import { Component } from 'react'
 import Button from 'react-bootstrap/Button'
-import LoginForm from './LoginForm.js'
+// import LoginForm from './LoginForm.js'
 
-export default class LoginButton extends Component {
+// import { withAuth0 } from '@auth0/auth0-react';
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      showLogin: false
-    }
-  }
+// class LoginButton extends Component {
 
-  handleLogin = () => {
-    this.setState({
-      showLogin: true
-    })
-  }
-  render() {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       showLogin: false
+//     }
+//   }
 
-    /* TODO: Render a button with label 'Log In'. When the button is clicked then show LoginForm instead */
-    return (
-      <>
-        {this.state.showLogin ? (
-          <LoginForm loginHandler={this.props.loginHandler}/>
-        ) : (
-          <Button onClick={this.handleLogin}>Login</Button>
-        )}
-      </>
-    )
-  }
+
+//   handleLogin = () => {
+//     this.setState({
+//       showLogin: true
+//     })
+//   }
+//   render() {
+//     const {
+//       isAuthenticated,
+//       loginWithRedirect,
+//     } = useAuth0();
+
+
+//     return (
+//       <>
+//         {/* {this.state.showLogin ? (
+//           <LoginForm loginHandler={this.props.loginHandler}/>
+//         ) : (
+//           <Button onClick={this.handleLogin}>Login</Button>
+//         )} */}
+
+//         {!isAuthenticated && (
+//           <Button onClick={loginWithRedirect}>Log in</Button>
+//         )}
+//       </>
+//     )
+//   }
+// }
+// export default withAuth0(LoginButton);
+import React from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
+
+function LoginButton() {
+  const {
+    isAuthenticated,
+    loginWithRedirect,
+  } = useAuth0();
+
+  return (
+    <Button onClick={loginWithRedirect}>Log in</Button>
+  );
 }
+
+export default LoginButton;
